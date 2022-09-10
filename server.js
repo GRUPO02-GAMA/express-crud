@@ -19,6 +19,7 @@ app.get('/', (req, res) => {
 
 const agendaRoutes = require('./src/routes/agenda.routes')
 app.use('/api', agendaRoutes)
+app.use('/public', express.static('public'));
 
 app.listen(port, () => {
   console.log(`Server is listening on http://localhost:${port}`);
