@@ -1,9 +1,7 @@
 const Agenda = require('../models/agenda.model')
 exports.findAll = function (req, res) {
   Agenda.findAll(function (err, agenda) {
-    console.log('controller')
     if (err) res.send(err)
-    console.log('res', agenda)
     res.send(agenda)
   })
 }

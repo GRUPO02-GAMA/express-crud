@@ -13,7 +13,6 @@ Agenda.create = function (newCont, result) {
       console.log('error: ', err)
       result(err, null)
     } else {
-      console.log(res.insertId)
       result(null, res.insertId)
     }
   })
@@ -37,7 +36,6 @@ Agenda.findAll = function (result) {
             result(null, err);
         }
         else{
-            console.log('employees : ', res);
             result(null, res);
         }
     });
