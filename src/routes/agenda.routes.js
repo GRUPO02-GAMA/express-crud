@@ -3,10 +3,10 @@ const router = express.Router()
 
 const agendaController = require('../controllers/agenda.controller');
 
-router.get('/', agendaController.findAll);
-router.post('/', agendaController.create);
-router.get('/:id', agendaController.findById);
-router.put('/:id', agendaController.update);
-router.delete('/:id', agendaController.delete);
+router.get('/agenda', agendaController.findAll);
+router.post('/agenda', agendaController.create);
+router.get('/agenda/:id', agendaController.findById);
+router.put('/agenda/:id', agendaController.update);
+router.delete('/agenda/:id', agendaController.delete);
 
 module.exports = router

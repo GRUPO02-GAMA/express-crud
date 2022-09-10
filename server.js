@@ -18,8 +18,8 @@ app.get('/', (req, res) => {
     //   res.send("Hello World");
 });
 
-// const agendaRoutes = require('./src/routes/agenda.routes')
-// app.use('/api/agenda', agendaRoutes)
+const agendaRoutes = require('./src/routes/agenda.routes')
+app.use('/api', agendaRoutes)
 
 app.listen(port, () => {
   console.log(`Server is listening on http://localhost:${port}`);
