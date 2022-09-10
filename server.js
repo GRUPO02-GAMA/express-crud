@@ -15,7 +15,6 @@ app.use(bodyParser.json())
 app.get('/', (req, res) => {
     const html = fs.readFileSync('src/views/index.html');
     res.end(html) ;
-    //   res.send("Hello World");
 });
 
 const agendaRoutes = require('./src/routes/agenda.routes')
