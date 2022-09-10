@@ -31,16 +31,17 @@ Agenda.findById = function (id, result) {
 }
 
 Agenda.findAll = function (result) {
-  dbConn.query('Select * from agenda', function (err, res) {
-    if (err) {
-      console.log('error: ', err)
-      result(null, err)
-    } else {
-      console.log('agenda : ', res)
-      result(null, res)
-    }
-  })
-}
+    dbConn.query("select * from agenda", function (err, res) {
+        if(err) {
+            console.log("error: ", err);
+            result(null, err);
+        }
+        else{
+            console.log('employees : ', res);
+            result(null, res);
+        }
+    });
+};
 
 Agenda.update = function (id, agenda, result) {
   dbConn.query(
