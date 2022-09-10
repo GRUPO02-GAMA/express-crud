@@ -1,5 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const fs = require('fs');
+
 require('dotenv').config()
 
 const app = express();
@@ -11,7 +13,9 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
-  res.send("Hello World");
+    const html = fs.readFileSync('src/views/index.html');
+    res.end(html) ;
+    //   res.send("Hello World");
 });
 
 // const agendaRoutes = require('./src/routes/agenda.routes')
