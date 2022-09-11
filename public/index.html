@@ -4,74 +4,100 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <link rel="stylesheet" href="/public/css/style.css">
-
+    <title>Agenda de contatos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.0/css/bootstrap.min.css" integrity="sha512-NZ19NrT58XPK5sXqXnnvtf9T5kLXSzGQlVZL9taZWeTBtXoN3xIfTdxbkQh6QSoJfJgpojRqMfhyqBAAEeiXcA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <br>
-    <br>
-    <div class="container">
-      <h1 class="titulo">Agenda de contatos 📚</h1>
-      <br>
-        <form>
+    <!-- Button trigger modal -->
 
-          <div class="row">
+  
+
+
+    <div class="container">
+        <div class="row">
             <div class="col">
-              <label class="form-label">Nome:</label>
-              <input class="form-control" type="text" id="nome" placeholder="Digite o nome completo" required>
-            </div>
-              <div class="col">
-              <label class="form-label">Email:</label>
-              <input class="form-control" type="text" id="email" placeholder="exemple@exemplo.com" required>
-            </div>
-            <div class="col">
-              <label class="form-label">Idade:</label>
-              <input class="form-control" type="number" id="idade" placeholder="Apenas números" required> 
-            </div>
-            
-            <div class="col">
-                <label class="form-label">Genero:</label>
-                <div class="form-inline">
-                <div  class="form-control  form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="radios" id="M" value="M" checked>
-                <label class="form-check-label" for="radios1">M</label>
-            </div>
-            
-                <div class="form-control form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="radios" id="F" value="F">
-                    <label class="form-check-label" for="radios2">F</label>
-              </div> 
+                <h1 class="titulo">Agenda de contatos 📚</h1>
             </div>
         </div>
-        </form>
+        <div class="row">
+            <div class="col-3 d-grid">
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#cadastrar">
+                    Cadastrar
+                </button>
+            </div>
+            <div class="col-3 d-grid">
+                <input type="button" class="btn btn-primary" value="Visualizar" id="visualizar"/>
+            </div>
         </div>
-        <br>
-        <input type="submit" class="btn btn-success" value="Cadastrar" id="cadastrar"/>
-        <input type="submit" class="btn btn-primary" value="Visualizar" id="visualizar"/>
-        <br>
-        <br>
-        <hr>
-        
-    <div class="table-responsive-md">
-    <table class="table table-striped" id="agenda">
-        <thead>
-            <tr>
-                <th scope="col" value="">#</th>
-                <th scope="col" value="">Nome</th>
-                <th scope="col" value="">Email</th>
-                <th scope="col" value="">Idade</th>
-                <th scope="col" value="">Genero</th>
-            </tr>
-            
-        </thead>
-  <tbody>   
-    
-  </tbody>
-</table>
-</div>
+        <div class="row">
+            <div class="col">
+                <div class="table-responsive-md">
+                    <table class="table table-striped" id="agenda">
+                        <thead>
+                            <tr>
+                                <th scope="col" value="">#</th>
+                                <th scope="col" value="">Nome</th>
+                                <th scope="col" value="">Email</th>
+                                <th scope="col" class="text-center" value="">Idade</th>
+                                <th scope="col" class="text-center" value="">Genero</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                            <tbody></tbody>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+      <!-- Modal -->
+  <div class="modal fade" id="cadastrar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+            <form onsubmit="return create(event)" id="form">
+                <div class="mb-3">
+                    <label class="form-label">Nome:</label>
+                    <input class="form-control" type="text" id="nome" placeholder="Digite o nome completo" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Email:</label>
+                    <input class="form-control" type="text" id="email" placeholder="exemple@exemplo.com" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Idade:</label>
+                    <input class="form-control" type="number" min="18" id="idade" placeholder="Apenas números" required> 
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Genero: &nbsp;&nbsp;</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="radios" id="M" value="M" checked>
+                        <label class="form-check-label" for="radios1">M</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="radios" id="F" value="F">
+                        <label class="form-check-label" for="radios2">F</label>
+                    </div>
+                </div>
+                <div class="mb-3">
+
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary" onclick="$('#form').trigger('submit')">Cadastrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.0/js/bootstrap.min.js" integrity="sha512-Pv/SmxhkTB6tWGQWDa6gHgJpfBdIpyUy59QkbshS1948GRmj6WgZz18PaDMOqaEyKLRAvgil7sx/WACNGE4Txw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="/public/js/index.js"></script>
+    <script src="/js/index.js"></script>
+    <script src="/js/create.js"></script>
+    <script src="/js/edit.js"></script>
+    <script src="/js/remove.js"></script>
 </body>
 </html>
