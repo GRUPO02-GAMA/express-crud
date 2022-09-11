@@ -27,9 +27,6 @@
                     Cadastrar
                 </button>
             </div>
-            <div class="col-3 d-grid">
-                <input type="button" class="btn btn-primary" value="Visualizar" id="visualizar"/>
-            </div>
         </div>
         <div class="row">
             <div class="col">
@@ -39,9 +36,9 @@
                             <tr>
                                 <th scope="col" value="">#</th>
                                 <th scope="col" value="">Nome</th>
-                                <th scope="col" value="">Email</th>
+                                <th scope="col" value="">E-mail</th>
                                 <th scope="col" class="text-center" value="">Idade</th>
-                                <th scope="col" class="text-center" value="">Genero</th>
+                                <th scope="col" class="text-center" value="">Gênero</th>
                                 <th>&nbsp;</th>
                             </tr>
                             <tbody></tbody>
@@ -62,7 +59,7 @@
                     <input class="form-control" type="text" id="nome" placeholder="Digite o nome completo" required>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Email:</label>
+                    <label class="form-label">E-mail:</label>
                     <input class="form-control" type="text" id="email" placeholder="exemple@exemplo.com" required>
                 </div>
                 <div class="mb-3">
@@ -70,7 +67,7 @@
                     <input class="form-control" type="number" min="18" id="idade" placeholder="Apenas números" required> 
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Genero: &nbsp;&nbsp;</label>
+                    <label class="form-label">Gênero: &nbsp;&nbsp;</label>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="radios" id="M" value="M" checked>
                         <label class="form-check-label" for="radios1">M</label>
@@ -92,6 +89,94 @@
       </div>
     </div>
   </div>
+
+  <!-- Modal edit -->
+  <div
+  class="modal fade"
+  id="editar"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <form onsubmit="return edit(event)" id="formEdit">
+          <div class="mb-3">
+            <label class="form-label">Nome:</label>
+            <input
+              class="form-control"
+              type="text"
+              id="nomeEdit"
+              name="name"
+              placeholder="Digite o nome completo"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">E-mail:</label>
+            <input
+              class="form-control"
+              type="text"
+              id="emailEdit"
+              name="email"
+              placeholder="exemple@exemplo.com"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Idade:</label>
+            <input
+              class="form-control"
+              type="number"
+              min="18"
+              id="idadeEdit"
+              name="age"
+              placeholder="Apenas números"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Gênero: &nbsp;&nbsp;</label>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="radios"
+                id="MEdit"
+                name="gender"
+              />
+              <label class="form-check-label" for="radios1">M</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="radios"
+                id="FEdit"
+                name="gender"
+              />
+              <label class="form-check-label" for="radios2">F</label>
+            </div>
+          </div>
+          <div class="mb-3"></div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Fechar
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          onclick="$('#formEdit').trigger('submit')"
+        >
+          Editar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.0/js/bootstrap.min.js" integrity="sha512-Pv/SmxhkTB6tWGQWDa6gHgJpfBdIpyUy59QkbshS1948GRmj6WgZz18PaDMOqaEyKLRAvgil7sx/WACNGE4Txw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
