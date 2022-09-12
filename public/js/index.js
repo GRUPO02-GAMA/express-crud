@@ -27,24 +27,3 @@ fetch('/api/agenda')
         alert(err);
     });
 
-
-// function open() {
-//     document
-//         .querySelector('.modal-overlay')
-//         .classList
-//         .add('active')
-// }
-
-// function close() {
-//     document
-//         .querySelector('.modal-overlay')
-//         .classList
-//         .remove('active')
-// }
-
-// var item = document.getElementById('novo');
-// var cancel = document.getElementById('cancelar');
-
-// item.addEventListener('click', open);
-// cancel.addEventListener('click', close);
-

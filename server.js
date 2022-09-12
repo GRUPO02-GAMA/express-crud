@@ -12,10 +12,6 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(bodyParser.json())
 
-// app.get('/', (req, res) => {
-//     res.status(301).redirect("public/index.html");
-// });
-
 const agendaRoutes = require('./src/routes/agenda.routes')
 app.use('/api', agendaRoutes)
 app.use(express.static('public'));
