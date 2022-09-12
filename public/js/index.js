@@ -1,11 +1,10 @@
-
 fetch('/api/agenda')
-    .then((response) => response.json())
-    .then((res) => {
-        for (let i = 0; i < res.length; i++) {
-            const el = res[i];
-            $('#agenda tbody').append(
-                `<tr>
+  .then(response => response.json())
+  .then(res => {
+    for (let i = 0; i < res.length; i++) {
+      const el = res[i]
+      $('#agenda tbody').append(
+        `<tr>
                 <td>${el.id}</td>
                 <td>${el.name}</td>
                 <td>${el.email}</td>
@@ -18,12 +17,14 @@ fetch('/api/agenda')
                     <button type="button" class="btn" onclick="remove(${el.id})">
                         <i class="fa-solid fa-trash"></i>
                     </button>
+                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#visualizar" onclick="show(${el.id})">
+                        <i class="fa-solid fa-eye"></i>
+                    </button>
                 </td>
             </tr>`
-            )
-        }
-    })
-    .catch((err) => {
-        alert(err);
-    });
-
+      )
+    }
+  })
+  .catch(err => {
+    alert(err)
+  })

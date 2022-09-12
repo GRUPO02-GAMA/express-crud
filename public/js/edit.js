@@ -2,7 +2,6 @@ function edit(id) {
   fetch(`/api/agenda/${id}`)
     .then(response => response.json())
     .then(res => {
-      console.log(res)
       document.getElementById('nomeEdit').value = res[0].name
       document.getElementById('emailEdit').value = res[0].email
       document.getElementById('idadeEdit').value = res[0].age
